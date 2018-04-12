@@ -57,7 +57,7 @@ const vm = new Vue({
     title: ''
   },
   mounted () {
-    this.getPosts('home');
+    this.myselfGet();
   },
   methods: {
     getPosts(section) {
@@ -69,6 +69,11 @@ const vm = new Vue({
         let title = this.section !== 'home' ? "Top stories in '"+ this.section + "' today" : "Top stories today";
         this.title = title + "(" + response.data.num_results+ ")";
       }).catch((error) => { console.log(error); });
-    }
+    },
+      myselfGet(){
+      axios.get('/apis/Service.asmx/getCity?CountryID=1').then((response)=>{
+        console.log(response);
+      })
+      }
   }
 });
