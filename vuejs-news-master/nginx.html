@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>nginx demo</title>
+</head>
+<body>
+<div id="app">
+
+</div>
+</body>
+</html>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://unpkg.com/vue"></script>
+<script>
+    var vm=new Vue({
+        el:"#app",
+        mounted () {
+            this.nginxFun();
+        },
+        methods:{
+            nginxFun:function(){
+                axios.get("http://www.springframework.org/schema/beans/spring-beans-3.2.xsd").then((response)=>{
+                    console.log(response.data);
+                }).catch((error)=>{
+                    console.log(error);
+                })
+            }
+        }
+    })
+</script>

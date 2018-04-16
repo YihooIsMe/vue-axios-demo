@@ -57,7 +57,7 @@ const vm = new Vue({
     title: ''
   },
   mounted () {
-    this.myselfGet();
+    this.nginxFun();
   },
   methods: {
     getPosts(section) {
@@ -74,6 +74,13 @@ const vm = new Vue({
       axios.get('/apis/Service.asmx/getCity?CountryID=1').then((response)=>{
         console.log(response);
       })
+      },
+      nginxFun(){
+        axios.get("http://www.springframework.org/schema/beans/spring-beans-3.2.xsd").then((response)=>{
+            console.log(response.data);
+        }).catch((error)=>{
+            console.log(error);
+        })
       }
   }
 });
